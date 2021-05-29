@@ -4,6 +4,7 @@ import React from "react";
 import Cart from "./components/Cart/Cart";
 import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
+import CartProvider from "./store/CartProvider";
 
 // component function
 function App() {
@@ -23,7 +24,7 @@ function App() {
 
   // return data
   return (
-    <React.Fragment>
+    <CartProvider>
       {/* cart section start*/}
       {cartIsShown && <Cart onCloseCart = {hideCartHandler}/>}
       {/* cart section end*/}
@@ -37,7 +38,7 @@ function App() {
         <Meals />
       </main>
       {/* meals section end*/}
-    </React.Fragment>
+    </CartProvider>
   );
 }
 
