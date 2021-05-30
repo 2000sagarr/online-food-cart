@@ -25,19 +25,13 @@ function App() {
   // return data
   return (
     <CartProvider>
-      {/* cart section start*/}
       {cartIsShown && <Cart onCloseCart = {hideCartHandler}/>}
-      {/* cart section end*/}
 
-      {/* header section start*/}
       <Header onShowCart= {showCartHanlder} />
-      {/* header section end*/}
 
-      {/* meals section start*/}
       <main>
         <Meals />
       </main>
-      {/* meals section end*/}
     </CartProvider>
   );
 }

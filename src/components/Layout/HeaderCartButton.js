@@ -8,8 +8,6 @@ const HeaderCartButton = (props) => {
   // using useContext hook
   const cartContext = React.useContext(CartContext);
 
-  // const { items } = cartContext;
-  console.log(cartContext.items)
   const numberOfCartItems = cartContext.items.reduce((currentNo, item) => {
     return currentNo + item.amount;
   }, 0);
