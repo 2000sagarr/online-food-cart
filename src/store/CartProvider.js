@@ -52,18 +52,28 @@ const cartReducer = (state, action) => {
     };
   }
 
+
+
+  // remove or decrease amount of item from list
   if (action.type === "REMOVE") {
     // if given item present in list then return its id
     const existingCartItemIndex = state.items.findIndex(
       (item) => item.id === action.id
     );
 
+    // getting existing item using existingCartItemIndex
     const existingCartItem = state.items[existingCartItemIndex];
+
+    // updated amount ie total price
     const updatedTotalAmount = state.totalAmount - existingCartItem.price;
     let updatedItems;
+
+    // if amount of item is 1 then we have to remove item from list
     if(existingCartItem.amount === 1){
       updatedItems = state.items.filter(item => item.id !== action.id);
-    }else{
+    }
+    // if amount of item is >1 then decrement by 1
+    else{
       const updatedItem = {...existingCartItem, amount : existingCartItem.amount - 1};
       updatedItems = [...state.items];
       updatedItems[existingCartItemIndex] = updatedItem;
